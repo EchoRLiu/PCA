@@ -55,6 +55,10 @@ apply svd to matrix $X$ to obtain $U, S, V$, inspect $S$ to see which modes cont
 
 **Test 1: Ideal case**
 
+First, as we can see in the covaraince matrix Table~\ref{tab:test1_cov}, off diagonal, the covariance between $Y_a$ and $X_c$ is very large and very close to the variance of $X_c$, thus we should be aware that $X_c$ might be redundant. $Y_a$, $Y_b$ and $X_c$ has very large variance, thus suggesting the dynamics of interests.
+
+Next, in Figure~\ref{fig:test1_eigen} we can see the first mode is dominant; Figure~\ref{fig:test1_modes} shows us further that the first two modes already gives us pretty good results for $Y_a, Y_b, X_a$, thus confirming the dominant first two modes.
+
 
 ![figure 1](https://github.com/EchoRLiu/PCA/blob/master/test1_U.jpg)
 ![figure 2](https://github.com/EchoRLiu/PCA/blob/master/test1_eigen.jpg)
@@ -62,11 +66,19 @@ apply svd to matrix $X$ to obtain $U, S, V$, inspect $S$ to see which modes cont
 
 **Test 2: Noisy case**
 
+As we can see in the covaraince matrix Table~\ref{tab:test2_cov}, compared to test 1, the variance in $X_a, X_b, Y_c$ has increased, while some of $Y_a, Y_b, X_c$ decreased. This is the result of the noise generated during recording. Similarly, off diagonal, the covariance between $Y_a$ and $X_c$ is also very large and very close to the variance of $X_c$. $Y_a$, $Y_b$ and $X_c$ has very large variance, thus also suggesting the dynamics of interests.
+
+Next, in Figure~\ref{fig:test2_eigen} we can clearly see the first three mode is still dominant, but not so as in the first test, because of the noise. But Figure~\ref{fig:test2_modes} shows us that the first two modes still gives us pretty good results for $Y_a, Y_b, X_a$, thus we can see how well PCA is doing in this case even with noise.
+
 ![figure 4](https://github.com/EchoRLiu/PCA/blob/master/test2_U.jpg)
 ![figure 5](https://github.com/EchoRLiu/PCA/blob/master/test2_eigen.jpg)
 ![figure 6](https://github.com/EchoRLiu/PCA/blob/master/test2_modes.jpg)
 
 **Test 3: Horizontal Displacement**
+
+As we can see in the covaraince matrix Table~\ref{tab:test3_cov}, compared to test 1, the variance in $X_a, X_b, Y_c$ has increased, while some of $Y_a, Y_b, X_c$ decreased. This is the result of the horizontal displacement.
+
+Next, in Figure~\ref{fig:test3_eigen} we can clearly see the first three mode is still dominant, but not so as in the first test. Figure~\ref{fig:test3_modes} shows us that the first two modes still gives us pretty good results for $Y_a, Y_b, X_a$. We can also notice that the horizontal movement is appearing very strong in the second video series.
 
 
 ![figure 7](https://github.com/EchoRLiu/PCA/blob/master/test3_U.jpg)
@@ -74,6 +86,10 @@ apply svd to matrix $X$ to obtain $U, S, V$, inspect $S$ to see which modes cont
 ![figure 9](https://github.com/EchoRLiu/PCA/blob/master/test3_modes.jpg)
 
 **Test 4: Horizontal Displacement and Rotation**
+
+As we can see in the covaraince matrix Table~\ref{tab:test4_cov}, compared to test 1 and test 3, the variance in $X_a, X_b, Y_c$ has largely increased, while some of $Y_a, Y_b, X_c$ decreased. This is the result of the horizontal and displacement and rotation.
+
+Next, in Figure~\ref{fig:test4_eigen} we can clearly see the first three mode is still dominant, but not so as in the first test. Figure~\ref{fig:test4_modes} shows us that the first two modes still gives us pretty good results for $Y_a, Y_b, X_a$, but to get good results for $X_a, X_b, Y_c$, we might need mode 4 or 5. This is because the large variance is still on $Y_a, Y_b, X_a$, and the first three modes focus more on explaining them.
 
 ![figure 10](https://github.com/EchoRLiu/PCA/blob/master/test4_U.jpg)
 ![figure 11](https://github.com/EchoRLiu/PCA/blob/master/test4_eigen.jpg)
